@@ -9,7 +9,7 @@
 *          (2.) show unit test results in the bottom window
 *   for JS code run in top window.
 *   Note: the local aQuery module's makeDraggable() method was improved:
-*   dragged element is npo longer prematurely dropped; very robust, but
+*   dragged element is no longer prematurely dropped; very robust, but
 *   a little problematic when dragged to the very top and bottom of the screen.
 */
 //============================
@@ -126,22 +126,25 @@ window.onload = function(){//ridiculous!
         //----------------------
         if ( lineBoundary.top <= btnBoundary.bottom) {
             $('#line')
-                .setStyle("top", (btnBoundary.bottom  - 2) + 'px');
+                .chainStyles
+                    ("top", (btnBoundary.bottom) + 'px')
+            ;
         }
-        if ( lineBoundary.bottom >= window.innerHeight ){
+        else if( lineBoundary.bottom >= window.innerHeight ){
             $('#line')
                 .setStyle("top", (lineBoundary.top - $('#line').element.clientHeight) +"px");
         }
-        //------------------------
-        //lineBoundary = $('#line').element.getBoundingClientRect();
-        $('#top').setStyle
-                ("bottom", (window.innerHeight - lineBoundary.top) + "px");
-        $('#bottom').setStyle
-                ("top", lineBoundary.bottom +"px");
-        $('#line').chainStyles   //Keep the partition ("line") centered horizontally.
-                    ("left","0")
-                    ("right","0")
-        ;
+        {
+            $('#top').setStyle
+                    ("bottom", (window.innerHeight - lineBoundary.top) + "px");
+            $('#bottom').setStyle
+                    ("top", lineBoundary.bottom +"px");
+            $('#line').chainStyles   //Keep the partition ("line") centered horizontally.
+                        ("left","0")
+                        ("right","0")
+    
+            ;
+        }
         //---------------------------
     }
     //===================================

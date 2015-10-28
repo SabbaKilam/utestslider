@@ -38,8 +38,8 @@ body{
     #cursor: url(cursor.png),auto; 
     cursor: crosshair;
     overflow-y: scroll;
-    padding: 5%;
-    padding-top: 3%;
+    padding-left: 3%;
+    #padding-top: 3%;
     padding-bottom: 0;
     z-index: 1;
     font-size: 100%;
@@ -50,7 +50,7 @@ body{
     font-family: "Courier New", Courier, monospace ;
     font-weight: bold;
     top: 0;
-    padding-top: 5%;
+    padding-top: 25px;
     z-index:1;
     border-bottom: 1px solid white;
 }
@@ -58,6 +58,7 @@ body{
 #bottom{
     border-top: 1px solid white;
     bottom: 0;
+    padding: 3%;
     background-color: #222;
     z-index: 1;
 }
