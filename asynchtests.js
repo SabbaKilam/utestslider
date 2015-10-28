@@ -55,7 +55,9 @@ function group3(){
 //-------------------------
 group3();
 
-
+//$.get('modules/require.js', (r)=>{$('#bottom').html(r)});
+//$.get('modules/aQuery.js', (r)=>{$('#bottom').html(r)});
+//$.get('main.js', (r)=>{$('#bottom').html(r)});
 
 
 
