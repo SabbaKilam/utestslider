@@ -40,6 +40,7 @@ body{
     overflow-y: scroll;
     padding: 5%;
     padding-top: 3%;
+    padding-bottom: 0;
     z-index: 1;
     font-size: 100%;
     background: teal;
@@ -80,6 +81,7 @@ body{
     -o-user-select: none;
     user-select: none;
     /***************************/
+    opacity: 0; /*so you can't see it when it's in the wrong place'*/
 }
 
 .btn{

@@ -116,7 +116,7 @@ window.onload = function(){//ridiculous!
         $('#top').setStyle("padding-top",(btnBoundary.bottom + 10) + "px");
         joinWindows(e);
         $('#line').element.click();
-        $('.btn').chainStyleClass("font-size",pix(12,32));        
+        $('.btn').chainStyleClass("font-size",pix(12,22));        
     }
     //-------------------------------
     function joinWindows(e){
@@ -145,10 +145,8 @@ window.onload = function(){//ridiculous!
         //---------------------------
     }
     //===================================
-    function init(){
-        
-        pixelSize = $.liquidPixelFactory(320,1920);
-        
+    function init(){        
+        pixelSize = $.liquidPixelFactory(320,1920);        
         //---------------------------
         $('#btn').element.blur();
         $('#top').element.focus();
@@ -156,12 +154,10 @@ window.onload = function(){//ridiculous!
       
         //--------set initial font size-------------- 
         $('body').setStyle("font-size", $.pix(pixelSize(minFont,maxFont)));
-        $('.btn').chainStyleClass("font-size",pix(12,32));           
+        $('.btn').chainStyleClass("font-size",pix(12,22));           
         //--------------set responsive font size--------
-        //(()=>{
-          window.removeEventListener("resize", resizer);  
-          $('global').listen("resize", resizer);
-        //})();
+        window.removeEventListener("resize", resizer);  
+        $('global').listen("resize", resizer);
         //-----end of setting responsive font size------        
         $('.slider')
             .chainStyleClass
