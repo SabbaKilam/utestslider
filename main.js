@@ -79,8 +79,8 @@ window.onload = function(){//ridiculous!
         $('#btnFont').setStyle("opacity","0")
     })
     .listen("click",()=>{
-        minFont = 1* prompt("MINIMUM font size in pixels") || minFont;
-        maxFont = 1* prompt("MAXIMUM font size in pixels") || maxFont;
+        minFont = 1* prompt("MINIMUM font size in pixels","(" + minFont + ")") || minFont;
+        maxFont = 1* prompt("MAXIMUM font size in pixels","(" + maxFont + ")") || maxFont;
         init();     
     })
     //------------------------
@@ -126,7 +126,7 @@ window.onload = function(){//ridiculous!
         //----------------------
         if ( lineBoundary.top <= btnBoundary.bottom) {
             $('#line')
-                .setStyle("top", (btnBoundary.bottom + 2) + 'px');
+                .setStyle("top", (btnBoundary.bottom  - 2) + 'px');
         }
         if ( lineBoundary.bottom >= window.innerHeight ){
             $('#line')
