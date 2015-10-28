@@ -35,7 +35,9 @@ window.onload = function(){//ridiculous!
         $('#btn').element.click(); //same as clicking thr run button       
     });
     //--------Button event handlers----------------
+    $('#btn').element.blur();
     $('#top').element.focus();
+    //----------------------------------
     $('#btn')
         .listen("click",function(){
             $('#bottom').html(""); //clear the bottom first.
@@ -50,10 +52,14 @@ window.onload = function(){//ridiculous!
                     //alert("BEFORE:\n"+codeString);                
                     codeString = htmlToJs(codeString);
                     //alert("AFTER:\n"+codeString);
+                    
                     var f = Function(codeString);
                     f();
+                    
+                    $('#top').element.focus();
+                    
                 }catch(e){
-                    error(e); //the error function is defined with unit test below
+                    error(e); //this error function is defined with the unit tests below
                 }
             })();
         })
@@ -85,8 +91,6 @@ window.onload = function(){//ridiculous!
     })
     //------------------------
     $('#line').listen("mousemove", function(e){
-        //e.stopPropagation();//keeps line centered horizontally 
-        //e.preventDefault();
         joinWindows(e);
     });
     //------------------------------
@@ -98,7 +102,6 @@ window.onload = function(){//ridiculous!
     window.onresize = resizingActions;
     //-------------------------------
     window.addEventListener("load", function(e){
-        //e.stopPropagation();//keeps line centered horizontally        
         joinWindows(e);
     });
     //-------------------------------
@@ -108,10 +111,7 @@ window.onload = function(){//ridiculous!
         joinWindows(e);  
     });
     //-------------------------------
-    function resizingActions(e){
-        //e.stopPropagation();//keeps line centered horizontally
-        //by preventing draggable handlers position cursor 
-        
+    function resizingActions(e){       
         var btnBoundary = $('#btn').element.getBoundingClientRect();       
         $('#top').setStyle("padding-top",(btnBoundary.bottom + 10) + "px");
         joinWindows(e);
@@ -142,16 +142,16 @@ window.onload = function(){//ridiculous!
             $('#line').chainStyles   //Keep the partition ("line") centered horizontally.
                         ("left","0")
                         ("right","0")
-    
             ;
         }
         //---------------------------
     }
     //===================================
     function init(){        
-        pixelSize = $.liquidPixelFactory(320,1920);        
+        pixelSize = $.liquidPixelFactory(320,1920);
+        
         //---------------------------
-        $('#btn').element.blur();
+        $('#btn').element.blur();        
         $('#top').element.focus();
         //---------------------------------------
       
